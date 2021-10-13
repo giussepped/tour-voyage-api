@@ -63,6 +63,10 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       allowNull: false,
       type: DataTypes.DATE,
     },
+    deletedAt: {
+      allowNull: true,
+      type: DataTypes.DATE,
+    },
   });
 
 export const down = (queryInterface: QueryInterface) =>

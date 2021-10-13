@@ -1,2 +1,2 @@
-# tour-voyage-backend
-Final degree project
+# Tour Voyage API
+Final degree project (Refactor)
