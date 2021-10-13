@@ -2,7 +2,6 @@ import { Request, Response, Router } from 'express';
 
 const router = Router();
 
-// youtube.com/watch?v=9bO0L1rfkvU
 /**
  * @swagger
  * /ping:
