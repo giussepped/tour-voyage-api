@@ -7,6 +7,8 @@ import router from './routes';
 import specs from './swagger';
 import { port } from './config';
 
+import './database';
+
 const App = express();
 
 App.set('port', port);
