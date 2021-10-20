@@ -12,7 +12,6 @@ describe('ICity', () => {
       location: 'mockedCityLocation',
       latitude: 'mockedCityLatitude',
       longitude: 'mockedCityLongitude',
-      isActive: true,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -31,7 +30,6 @@ describe('ICity', () => {
     expect(mockedCity).toHaveProperty('location', mockedCity.location);
     expect(mockedCity).toHaveProperty('latitude', mockedCity.latitude);
     expect(mockedCity).toHaveProperty('longitude', mockedCity.longitude);
-    expect(mockedCity).toHaveProperty('isActive', mockedCity.isActive);
     expect(mockedCity).toHaveProperty('createdAt', mockedCity.createdAt);
     expect(mockedCity).toHaveProperty('updatedAt', mockedCity.updatedAt);
   });

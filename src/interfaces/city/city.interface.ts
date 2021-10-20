@@ -7,5 +7,4 @@ export interface ICity extends IDefault {
   location: unknown;
   latitude: string;
   longitude: string;
-  isActive: boolean;
 }

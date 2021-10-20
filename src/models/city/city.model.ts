@@ -5,6 +5,7 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
+  AllowNull,
 } from 'sequelize-typescript';
 
 import { Country } from '../';
@@ -15,49 +16,30 @@ import { ICity } from '../../interfaces';
   paranoid: true,
 })
 export class City extends Model<ICity> {
-  @Column({
-    type: DataType.STRING(255),
-    allowNull: false,
-  })
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
   name: string;
 
-  @Column({
-    type: DataType.STRING(255),
-    allowNull: true,
-  })
-  photo: string;
+  @AllowNull(true)
+  @Column(DataType.STRING(255))
+  photo?: string;
 
-  @Column({
-    type: DataType.NUMBER,
-    allowNull: false,
-  })
+  @AllowNull(false)
   @ForeignKey(() => Country)
+  @Column(DataType.INTEGER)
   countryId: number;
 
-  @Column({
-    type: DataType.GEOMETRY('POINT'),
-    allowNull: false,
-  })
+  @AllowNull(false)
+  @Column(DataType.GEOMETRY('POINT'))
   location: string;
 
-  @Column({
-    type: DataType.STRING(255),
-    allowNull: false,
-  })
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
   latitude: string;
 
-  @Column({
-    type: DataType.STRING(255),
-    allowNull: false,
-  })
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
   longitude: string;
-
-  @Column({
-    type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: true,
-  })
-  isActive: boolean;
 
   @BelongsTo(() => Country, 'countryId')
   country: Country;
