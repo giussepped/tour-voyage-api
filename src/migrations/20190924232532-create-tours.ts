@@ -1,16 +1,17 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Tours', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     guideId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Guides',
@@ -18,16 +19,16 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     title: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     description: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.TEXT,
     },
     cityId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Cities',
@@ -35,30 +36,30 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     price: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
     },
     isGrouped: {
-      allowNull: false,
+      type: DataType.BOOLEAN,
       defaultValue: false,
-      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     isPublic: {
-      allowNull: false,
+      type: DataType.BOOLEAN,
       defaultValue: false,
-      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     deletedAt: {
+      type: DataType.DATE,
       allowNull: true,
-      type: DataTypes.DATE,
     },
   });
 

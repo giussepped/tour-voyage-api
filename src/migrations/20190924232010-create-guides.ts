@@ -1,57 +1,58 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Guides', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     firstName: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     lastName: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     bio: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.STRING,
     },
     email: {
+      type: DataType.STRING,
       unique: true,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     password: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     photo: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.TEXT,
     },
     status: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
     },
     token: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.STRING,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     deletedAt: {
+      type: DataType.DATE,
       allowNull: true,
-      type: DataTypes.DATE,
     },
   });
 
