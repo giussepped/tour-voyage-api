@@ -1,6 +1,6 @@
-import { IDefault } from '..';
+import { IRelationDefault } from '..';
 
-export interface IPhoto extends IDefault {
+export interface IPhoto extends IRelationDefault {
   tourId: number;
   url: string;
 }

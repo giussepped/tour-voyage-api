@@ -4,3 +4,7 @@ export interface IDefault {
   readonly updatedAt: Date;
   readonly deletedAt?: Date;
 }
+
+export interface IRelationDefault {
+  readonly id: number;
+}
