@@ -8,7 +8,6 @@ describe('IInterest', () => {
       id: 1,
       name: 'mockedInterestName',
       description: 'mockedInterestDescription',
-      isActive: true,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -26,7 +25,6 @@ describe('IInterest', () => {
       'description',
       mockedInterest.description,
     );
-    expect(mockedInterest).toHaveProperty('isActive', mockedInterest.isActive);
     expect(mockedInterest).toHaveProperty(
       'createdAt',
       mockedInterest.createdAt,
