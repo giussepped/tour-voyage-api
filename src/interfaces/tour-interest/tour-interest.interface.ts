@@ -1,4 +1,4 @@
-import { IRelationDefault } from '..';
+import { IRelationDefault } from '../';
 
 export interface ITourInterest extends IRelationDefault {
   tourId: number;

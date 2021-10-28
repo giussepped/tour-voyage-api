@@ -1,4 +1,4 @@
-import { IDefault } from '..';
+import { IDefault } from '../';
 
 export interface IBid extends IDefault {
   tourId: number;

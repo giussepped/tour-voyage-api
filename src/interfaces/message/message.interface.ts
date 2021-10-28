@@ -1,4 +1,4 @@
-import { IDefault } from '..';
+import { IDefault } from '../';
 
 export interface IMessage extends IDefault {
   chatId: number;

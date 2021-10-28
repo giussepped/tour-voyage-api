@@ -1,4 +1,4 @@
-import { IDefault } from '..';
+import { IDefault } from '../';
 
 export interface IBooking extends IDefault {
   userId: number;
