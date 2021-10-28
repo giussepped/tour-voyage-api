@@ -1,16 +1,17 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('ToursPhotos', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     tourId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Tours',
@@ -18,16 +19,16 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     url: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.TEXT,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
   });
 

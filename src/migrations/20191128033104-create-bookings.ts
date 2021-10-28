@@ -1,16 +1,17 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Bookings', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     userId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Users',
@@ -18,8 +19,8 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     tourId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Tours',
@@ -27,24 +28,38 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     description: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.TEXT,
     },
     issued: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     status: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
+    },
+    userScore: {
+      type: DataType.DOUBLE,
+      defaultValue: 0,
+      allowNull: false,
+    },
+    guideScore: {
+      type: DataType.DOUBLE,
+      defaultValue: 0,
+      allowNull: false,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
+    },
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
     },
   });
 

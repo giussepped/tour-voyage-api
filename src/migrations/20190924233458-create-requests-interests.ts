@@ -1,16 +1,17 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('RequestsInterests', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     requestId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Requests',
@@ -18,8 +19,8 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     interestId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Interests',
@@ -27,12 +28,12 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
   });
 

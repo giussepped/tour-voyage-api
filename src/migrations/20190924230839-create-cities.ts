@@ -1,24 +1,25 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Cities', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     name: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     photo: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.TEXT,
     },
     countryId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Countries',
@@ -26,29 +27,28 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     location: {
+      type: DataType.GEOMETRY,
       allowNull: false,
-      type: DataTypes.GEOMETRY,
     },
     latitude: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     longitude: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
-    },
-    isActive: {
-      allowNull: false,
-      defaultValue: true,
-      type: DataTypes.BOOLEAN,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
+    },
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
     },
   });
 

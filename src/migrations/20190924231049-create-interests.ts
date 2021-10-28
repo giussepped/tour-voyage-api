@@ -1,34 +1,34 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Interests', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     name: {
+      type: DataType.STRING,
       unique: true,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     description: {
+      type: DataType.STRING,
       allowNull: true,
-      type: DataTypes.TEXT,
-    },
-    isActive: {
-      allowNull: false,
-      defaultValue: true,
-      type: DataTypes.BOOLEAN,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
+    },
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
     },
   });
 

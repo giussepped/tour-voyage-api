@@ -1,16 +1,17 @@
 import { QueryInterface } from 'sequelize';
+import { DataType } from 'sequelize-typescript';
 
-export const up = (queryInterface: QueryInterface, DataTypes: any) =>
+export const up = (queryInterface: QueryInterface) =>
   queryInterface.createTable('Requests', {
     id: {
-      allowNull: false,
-      autoIncrement: true,
+      type: DataType.INTEGER,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
     },
     userId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Users',
@@ -18,24 +19,24 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     title: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.STRING,
     },
     description: {
+      type: DataType.STRING,
       allowNull: false,
-      type: DataTypes.TEXT,
     },
     from: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     to: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     cityId: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {
         model: 'Cities',
@@ -43,25 +44,29 @@ export const up = (queryInterface: QueryInterface, DataTypes: any) =>
       },
     },
     isGrouped: {
-      allowNull: false,
+      type: DataType.BOOLEAN,
       defaultValue: false,
-      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     budget: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
     },
     status: {
+      type: DataType.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER,
     },
     createdAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
     },
     updatedAt: {
+      type: DataType.DATE,
       allowNull: false,
-      type: DataTypes.DATE,
+    },
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
     },
   });
 
