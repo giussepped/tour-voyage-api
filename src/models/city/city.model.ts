@@ -6,9 +6,10 @@ import {
   ForeignKey,
   BelongsTo,
   AllowNull,
+  BelongsToMany,
 } from 'sequelize-typescript';
 
-import { Country } from '../';
+import { Country, Guide, GuideCity } from '../';
 import { ICity } from '../../interfaces';
 
 @Table({
@@ -43,4 +44,7 @@ export class City extends Model<ICity> {
 
   @BelongsTo(() => Country, 'countryId')
   country: Country;
+
+  @BelongsToMany(() => Guide, () => GuideCity, 'cityId', 'guideId')
+  guide: Guide[];
 }
